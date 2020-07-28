@@ -1,4 +1,4 @@
-// Let's start by creating some variables to begin 
+// Let's start by creating some variables to call axios and inquirer
 
 const axios = require("axios");
 const inquirer = require("inquirer");
@@ -13,7 +13,7 @@ const path = require('path');
 //An async function is a function declared
 async function main() {
     // the await keyword is permitted within them. The async and await keywords enable asynchronous, promise-based behavior to be written in a cleaner style
-    console.log('Start');
+    console.log(`starting`);
     const userResponse = await iquirer 
     // The prompt() method displays a dialog box that prompts the visitor for input - asks user for a series of information about themselves - Questions
     .prompt([
@@ -79,7 +79,7 @@ async function main() {
     // Now I will create more variables that call my new methods 
 
     const gitUsername = userRepsonse.username;
-    const projectTittle = userResponse.projectTittle;
+    const projectTitle = userResponse.projectTitle;
     const projectDescription = userResponse.projectDescription;
     const installationProcess = userResponse.installationProcess;
     const instruction = userResponse.instruction;
@@ -90,7 +90,7 @@ async function main() {
     const tests = userResponse.tests;
 
     // Using axios npm and .get to make http requests from node.js
-
+    // fetching the data from git like in class
     // this first await for the main user of the program  
     const gitResponse = await axios.get(`https://api.github.com/users/${gitUsername}`);
     // calling function gitResponse and the data method
@@ -102,6 +102,8 @@ async function main() {
     const gitUrl = gitData.html_url;
     const gitProfileImage = gitData.avatar_url;
 
+    const contributorUserNamesArray = contributorUserNames.split(",");
+    console.log(contributorUserNamesArray);
     // this next part is for the contributers if any 
     var resultContributor;
       for (i=0; i<contributorUserNamesArray.length; i++){
@@ -132,7 +134,6 @@ ${projectDescription}
 
 // Information on how to generate a good readMe referenced from: https://blog.bitsrc.io/how-to-write-beautiful-and-meaningful-readme-md-for-your-next-project-897045e3f991
         
-    ])
 }
 
 
