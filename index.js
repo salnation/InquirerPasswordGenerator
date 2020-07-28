@@ -69,7 +69,28 @@ async function main() {
             message: "Please provide examples on how to run tests if applicable.",
             name: "tests"
         }
-        // Information on how to generate a good readMe referenced from: https://blog.bitsrc.io/how-to-write-beautiful-and-meaningful-readme-md-for-your-next-project-897045e3f991
+    ]);
+
+    // call on our 'starting' function and userResponse
+
+    console.log('starting');
+    console.log(userResponse);
+
+    // Now I will create more variables that call my new methods 
+
+    const gitUsername = userRepsonse.username;
+    const projectTittle = userResponse.projectTittle;
+    const projectDescription = userResponse.projectDescription;
+    const installationProcess = userResponse.installationProcess;
+    const instruction = userResponse.instruction;
+    const instructionExample = userResponse.instructionExample;
+    const licenseName = userResponse.licenseName;
+    const licenseUrl = userResponse.licenseUrl;
+    const contributorUserNames = userResponse.contributorsGitUserName;
+    const tests = userResponse.tests;
+        
+    
+    // Information on how to generate a good readMe referenced from: https://blog.bitsrc.io/how-to-write-beautiful-and-meaningful-readme-md-for-your-next-project-897045e3f991
         
     ])
 }
