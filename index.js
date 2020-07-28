@@ -102,43 +102,38 @@ async function main() {
     const gitUrl = gitData.html_url;
     const gitProfileImage = gitData.avatar_url;
 
+    // this next part is for the contributers if any 
+    var resultContributor;
+      for (i=0; i<contributorUserNamesArray.length; i++){
+        var contributorsGitUserName = contributorUserNamesArray[i]
+        const gitResponse2 = await axios.get(`https://api.github.com/users/${contributorsGitUserName}`);
+        var gitContribuProfileImage = gitResponse2.data.avatar_url;
+        var gitContribuUrl = gitResponse2.data.html_url;
+        var gitContribuEmail = gitResponse2.data.email;
+        var resultContributor = resultContributor + (`
+            
+        
+        \n <img src="${gitContribuProfileImage}" alt="drawing" width="150" display="inline"/> ${contributorsGitUserName}  GitHubLink: ${gitContribuUrl}`);
+    }
+    var result = (`
+# ${projectTittle} 
+${projectDescription}
+\n* [Installation](#Installation)
+\n* [Instructions](#Instructions)
+\n* [License](#License)
+\n* [Contributors](#Contributors)
+\n* [Author](#Author)
+\n* [Tests](#Tests)
     
-    
-    // Information on how to generate a good readMe referenced from: https://blog.bitsrc.io/how-to-write-beautiful-and-meaningful-readme-md-for-your-next-project-897045e3f991
+    `)
+
+    var writeResult = fs.writeFileSync(path.join(__dirname, '../GoodReadMeGenerator', 'readMe.md'), result )
+    console.log("file ready!")
+
+// Information on how to generate a good readMe referenced from: https://blog.bitsrc.io/how-to-write-beautiful-and-meaningful-readme-md-for-your-next-project-897045e3f991
         
     ])
 }
 
-// array of questions for user
-const questions = [
-
-];
-
-// function to write README file
-function writeToFile(fileName, data) {
-}
-
-// function to initialize program
-function init() {
-
-}
-
-// function call to initialize program
-init();
 
 
-
-
-# ${projectTitle}
-
-# Installation 
-${installationProcess}
-
-# Instructions 
-${instructionExample}
-
-# License
-This project is licensed 
-
-## Tests
-${tests}
