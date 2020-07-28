@@ -26,47 +26,47 @@ async function main() {
         },
         {
             type: "input",
-            message: "What is your Project Tittle?",
+            message: "What is the title of your project?",
             name: "projectTittle"
         },
         {
             type: "input",
-            message: "Provide detail description",
+            message: "Please enter a detailed description of your project.",
             name: "projectDescription"
         },
         {
             type: "input",
-            message: "What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.",
+            message: "What are the steps required to install your project? Please add a step-by-step description of how to get the programming environment running effectively.",
             name: "installationProcess"
         },
         {
             type: "input",
-            message: "Provide instructions for use.",
+            message: "Please provide instructions for use.",
             name: "instruction"
         },
         {
             type: "input",
-            message: "Provide instructions examples for use.",
+            message: "Please provide instructions examples for use.",
             name: "instructionExample"
         },
         {
             type: "input",
-            message: "provide License name ",
+            message: "Please enter your License name ",
             name: "licenseName"
         },
         {
             type: "input",
-            message: "provide License url ",
+            message: "Please enter your License url if you have one.",
             name: "licenseUrl"
         },
         {
             type: "input",
-            message: "please enter git hub user names of the contributor if any (If there are mulitple contributor, seperate names with comma and no space! )",
+            message: "Please enter your GitHub user names of the contributor(s) if any (If there are mulitple contributors, seperate names with comma - NO SPACE AFTER THE COMMA AND THE NEXT CONTRIBUTOR!).",
             name: "contributorsGitUserName"
         },
         {
             type: "input",
-            message: "Provide examples on how to run tests.",
+            message: "Please provide examples on how to run tests if applicable.",
             name: "tests"
         }
         // Information on how to generate a good readMe referenced from: https://blog.bitsrc.io/how-to-write-beautiful-and-meaningful-readme-md-for-your-next-project-897045e3f991
