@@ -14,10 +14,28 @@ async function main() {
     // the await keyword is permitted within them. The async and await keywords enable asynchronous, promise-based behavior to be written in a cleaner style
     console.log('Start');
     const userResponse = await iquirer 
-    // The prompt() method displays a dialog box that prompts the visitor for input.
+    // The prompt() method displays a dialog box that prompts the visitor for input - asks user for a series of information about themselves - Questions
     .prompt([
         
     ])
 }
+
+// array of questions for user
+const questions = [
+
+];
+
+// function to write README file
+function writeToFile(fileName, data) {
+}
+
+// function to initialize program
+function init() {
+
+}
+
+// function call to initialize program
+init();
+
 
 //An async function is a function declared
