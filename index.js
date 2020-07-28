@@ -88,7 +88,21 @@ async function main() {
     const licenseUrl = userResponse.licenseUrl;
     const contributorUserNames = userResponse.contributorsGitUserName;
     const tests = userResponse.tests;
-        
+
+    // Using axios npm and .get to make http requests from node.js
+
+    // this first await for the main user of the program  
+    const gitResponse = await axios.get(`https://api.github.com/users/${gitUsername}`);
+    // calling function gitResponse and the data method
+    const gitData = gitResponse.data;
+    // calling function gitData and the login, email, location and html_url methods
+    const gitName = gitData.login;
+    const gitEmail = gitData.email;
+    const gitlocation = gitData.location;
+    const gitUrl = gitData.html_url;
+    const gitProfileImage = gitData.avatar_url;
+
+    
     
     // Information on how to generate a good readMe referenced from: https://blog.bitsrc.io/how-to-write-beautiful-and-meaningful-readme-md-for-your-next-project-897045e3f991
         
