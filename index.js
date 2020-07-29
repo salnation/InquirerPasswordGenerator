@@ -1,7 +1,7 @@
 // Let's start by creating some variables to call axios and inquirer
 
-const axios = require("axios");
 const inquirer = require("inquirer");
+const axios = require("axios");
 
 //the builtin require function is the easiest way to include modules that exist in separate files. 
 
@@ -11,7 +11,7 @@ const path = require('path');
 //The basic functionality of require is that it reads a JavaScript file, executes the file, and then proceeds to return the exports object.
 
 //An async function is a function declared
-async function main() {
+async function main(){
     // the await keyword is permitted within them. The async and await keywords enable asynchronous, promise-based behavior to be written in a cleaner style
     console.log(`starting`);
     const userResponse = await iquirer 
@@ -71,6 +71,8 @@ async function main() {
         }
     ]);
 
+    // Information on how to generate a good readMe referenced from: https://blog.bitsrc.io/how-to-write-beautiful-and-meaningful-readme-md-for-your-next-project-897045e3f991
+
     // call on our 'starting' function and userResponse
 
     console.log('starting');
@@ -78,8 +80,8 @@ async function main() {
 
     // Now I will create more variables that call my new methods 
 
-    const gitUsername = userRepsonse.username;
-    const projectTitle = userResponse.projectTitle;
+    const gitUsername = userResponse.username;
+    const projectTittle = userResponse.projectTittle;
     const projectDescription = userResponse.projectDescription;
     const installationProcess = userResponse.installationProcess;
     const instruction = userResponse.instruction;
@@ -102,16 +104,19 @@ async function main() {
     const gitUrl = gitData.html_url;
     const gitProfileImage = gitData.avatar_url;
 
+    // .split to split the string into an array of substrings, and returns a new array
+    
     const contributorUserNamesArray = contributorUserNames.split(",");
     console.log(contributorUserNamesArray);
     // this next part is for the contributers if any 
     var resultContributor;
-      for (i=0; i<contributorUserNamesArray.length; i++){
+    
+    for (i=0; i<contributorUserNamesArray.length; i++){
         var contributorsGitUserName = contributorUserNamesArray[i]
         const gitResponse2 = await axios.get(`https://api.github.com/users/${contributorsGitUserName}`);
-        var gitContribuProfileImage = gitResponse2.data.avatar_url;
-        var gitContribuUrl = gitResponse2.data.html_url;
-        var gitContribuEmail = gitResponse2.data.email;
+        var gitContribProfileImage = gitResponse2.data.avatar_url;
+        var gitContribUrl = gitResponse2.data.html_url;
+        var gitContribEmail = gitResponse2.data.email;
         var resultContributor = resultContributor + (`
             
         
@@ -127,14 +132,32 @@ ${projectDescription}
 \n* [Author](#Author)
 \n* [Tests](#Tests)
     
-    `)
+## Installation
+${installationProcess}
+## Instructions
+${instruction}
+\`\`\`
+${instructionExample}
+\`\`\`
+## License 
+This project is licensed under the ${licenseName} - see the ${licenseUrl} file for details
+## Contributors
+${resultContributor}
+## Tests
+${tests}
+## Author 
+\n![ProfileImage](${gitProfileImage})
+\n**${gitName}**
+\nEmail: ${gitEmail}
+\nLocation:${gitlocation}
+\nGitHub: ${gitUrl}
+`)
 
-    var writeResult = fs.writeFileSync(path.join(__dirname, '../GoodReadMeGenerator', 'readMe.md'), result )
-    console.log("file ready!")
-
-// Information on how to generate a good readMe referenced from: https://blog.bitsrc.io/how-to-write-beautiful-and-meaningful-readme-md-for-your-next-project-897045e3f991
-        
+var writeResult = fs.writeFileSync(path.join(__dirname, '../GoodReadMeGenerator', 'readMe.md'), result )
+console.log("file ready!")    
 }
+main();
+
 
 
 
